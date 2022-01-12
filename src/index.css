@@ -20,12 +20,12 @@ body {
   width: 50%;
 }
 
-.teamA {
+.team-a {
   width: 30%;
   background-color: red;
 }
 
-.teamB {
+.team-b {
   width: 30%;
   background-color: blue;
   color: blue;

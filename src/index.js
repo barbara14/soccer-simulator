@@ -1,3 +1,4 @@
+/* eslint-disable space-before-function-paren */
 import _ from "lodash";
 
 const teams = [
@@ -30,7 +31,7 @@ const calculateGoals = function (team1, team2) {
       goalsTeamB = goalsTeamA + 1;
     } else if (numberRange <= 8) {
       goalsTeamB = goalsTeamA + 2;
-    } else if (numberRange == 9) {
+    } else if (numberRange === 9) {
       goalsTeamB = goalsTeamA + 3;
     } else {
       goalsTeamB = goalsTeamA + 4;
@@ -41,16 +42,27 @@ const calculateGoals = function (team1, team2) {
   team2.goals = randomGoals();
 };
 
+const checkWin = function (team1, team2) {
+  if (team1.goals > team2.goals) {
+    console.log(`gana ${team1}`);
+  } else if (team1.goals < team2.goals) {
+    console.log(`gana ${team2}`);
+  } else {
+    console.log(`empate entre ${team1} y ${team2}!`);
+  }
+};
+
 const startGame = function () {
   // coger 2 equipos y sacarles de array de jugadores
   const randomTeams = _.shuffle(teams);
   const teamA = randomTeams.shift();
   const teamB = randomTeams.shift();
+  teamsPlayed.push(teamA).push(teamB);
   console.log(teamA, teamB, randomTeams);
   // calcular goles
   calculateGoals(teamA, teamB);
   // calcular la victoria y asignar los puntos
-  console.log(teamA, teamB);
+  checkWin(teamA, teamB);
   // decir quien gana
 };
 
